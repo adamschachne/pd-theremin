@@ -1,0 +1,29 @@
+#N canvas 189 117 806 580 16;
+#X floatatom 359 167 5 0 0 0 - - -, f 5;
+#X obj 361 88 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 391 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 391 83 metro 20;
+#X obj 363 126 wiringPi_gpio 5 1 0;
+#X obj 96 167 wiringPi_gpio 4 0 0;
+#X text 238 291 delay half a second to settle;
+#X obj 87 84 r pulse;
+#X msg 105 426 s pulse;
+#X obj 114 253 loadbang;
+#X obj 133 292 delay 500;
+#X msg 257 392 1;
+#X msg 280 459 0, f 2;
+#X obj 282 428 delay 0.01;
+#X obj 84 120 print;
+#X msg 99 384 bang;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 7 0 14 0;
+#X connect 9 0 10 0;
+#X connect 11 0 13 0;
+#X connect 11 0 8 0;
+#X connect 13 0 12 0;
+#X connect 15 0 8 0;
