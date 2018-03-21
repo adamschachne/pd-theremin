@@ -27,6 +27,7 @@ print("sensor settle..")
 time.sleep(2)
 
 def sendToPd(message=''):
+	print(message)
 	os.system("echo '" + message + "' | pdsend 3000 ")
 
 def distance(trig, echo):
@@ -73,7 +74,7 @@ def get_MIDI(dist=20):
 	dist_range = (max - min)
 
 	offset = (dist * note_range)/dist_range
-	midi = 72 - offset
+	midi = 80 - offset
 	return(midi)
 
 try:
@@ -91,7 +92,6 @@ try:
 		if (volDist >= 100 and dist >= 100):
 			continue
 
-		print('dist: ' + str(dist) + ' midi=' + str(midi))
 		sendToPd(str(midi) + ' ' + str(volume) + ';\n')
 
 except KeyboardInterrupt:
